@@ -1,0 +1,23 @@
+{
+  "name": "@br0ski777/tech-enrichment-mcp",
+  "version": "1.0.0",
+  "type": "module",
+  "mcpName": "io.github.br0ski777/tech-enrichment",
+  "scripts": {
+    "dev": "bun run --hot src/index.ts",
+    "start": "bun run src/index.ts",
+    "mcp": "bun run src/mcp.ts"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.12.0",
+    "@x402/core": "^2.9.0",
+    "@x402/evm": "^2.9.0",
+    "@x402/hono": "^2.9.0",
+    "hono": "^4.7.0",
+    "jose": "^6.2.0"
+  },
+  "devDependencies": {
+    "bun-types": "latest",
+    "typescript": "^5.7.0"
+  }
+}
