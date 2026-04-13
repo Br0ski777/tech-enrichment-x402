@@ -31,6 +31,44 @@ Do NOT use for full company data -- use company_enrich_from_domain instead. Do N
         },
         required: ["url"],
       },
+      outputSchema: {
+          "type": "object",
+          "properties": {
+            "url": {
+              "type": "string",
+              "description": "URL analyzed"
+            },
+            "technologies": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "category": {
+                    "type": "string"
+                  },
+                  "confidence": {
+                    "type": "number"
+                  }
+                }
+              }
+            },
+            "summary": {
+              "type": "object",
+              "description": "Tech stack summary by category"
+            },
+            "scan_time_ms": {
+              "type": "number",
+              "description": "Scan duration in ms"
+            }
+          },
+          "required": [
+            "url",
+            "technologies"
+          ]
+        },
     },
   ],
 };
