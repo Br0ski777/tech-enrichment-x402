@@ -3,7 +3,7 @@
   "name": "io.github.Br0ski777/tech-enrichment",
   "title": "Technology Stack Detection API",
   "description": "Detect 50+ technologies on any website: CMS, frameworks, analytics, CDN. x402.",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "websiteUrl": "https://github.com/Br0ski777/tech-enrichment-x402",
   "repository": {
     "url": "https://github.com/Br0ski777/tech-enrichment-x402",
