@@ -35,7 +35,7 @@ Any x402-aware client ([`@x402/fetch`](https://www.npmjs.com/package/@x402/fetch
 
 | Tool | Method | Path | Price | Description |
 |---|---|---|---|---|
-| `website_detect_tech_stack` | GET | `/api/detect` | $0.005 | Detect technologies used on a website |
+| `website_detect_tech_stack` | GET | `/api/detect` | $0.012 | Detect technologies used on a website |
 
 ### `website_detect_tech_stack`
 
