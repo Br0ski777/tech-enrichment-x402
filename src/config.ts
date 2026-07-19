@@ -9,7 +9,7 @@ export const API_CONFIG: ApiConfig = {
     {
       method: "GET",
       path: "/api/detect",
-      price: "$0.005",
+      price: "$0.012",
       description: "Detect technologies used on a website",
       toolName: "website_detect_tech_stack",
       toolDescription: `Use this when you need to identify what technologies a website uses. Returns structured JSON with categorized detections, confidence levels, and evidence for each technology found.
