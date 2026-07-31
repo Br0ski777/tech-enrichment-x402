@@ -121,9 +121,8 @@ function buildSummary(dets: Detection[]) {
 }
 
 export function registerRoutes(app: Hono) {
-  app.get("/api/detect", async (c) => {
+  async function handleDetect(c: any, url: string | undefined) {
     await tryRequirePayment(0.005);
-    const url = c.req.query("url");
     if (!url) return c.json({ error: "Missing required parameter: url" }, 400);
     let parsedUrl: URL;
     try { parsedUrl = new URL(url.startsWith("http") ? url : `https://${url}`); } catch { return c.json({ error: "Invalid URL" }, 400); }
@@ -141,5 +140,14 @@ export function registerRoutes(app: Hono) {
       const msg = err instanceof Error ? err.message : "Detection failed";
       return c.json({ error: msg.includes("abort") ? "Request timed out (10s)" : msg, url: parsedUrl.toString(), scan_time_ms: Date.now() - startTime }, 500);
     }
+  }
+
+  app.get("/api/detect", async (c) => handleDetect(c, c.req.query("url")));
+
+  // POST mirror of the GET route above -- Bazaar (CDP) only reliably indexes
+  // POST payments with valid payloads. Same params, JSON body instead of query.
+  app.post("/api/detect", async (c) => {
+    const body = await c.req.json().catch(() => ({}) as any);
+    return handleDetect(c, body.url);
   });
 }
